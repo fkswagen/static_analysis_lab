@@ -46,7 +46,7 @@ class InvoiceService:
     def _get_shipping(self, country: str, subtotal: float) -> float:
      
         limit, fee = self._shipping_rules.get(country, self._shipping_rules["DEFAULT"])
-        if country == "US": # กรณีพิเศษของ US
+        if country == "US": 
             if subtotal < 100: return 15
             return 8 if subtotal < 300 else 0
         return fee if subtotal < limit else 0
